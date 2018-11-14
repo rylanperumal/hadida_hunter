@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Hadida Hunter</title>
+  <meta charset="utf-8">
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      background-image: url("../img/HadidaHunter_background.png");
+      background-color: #ffffff;
+      cursor: crosshair;
+      color: #111;
+      margin: 0px;
+      overflow: hidden;
+      font-family: Monospace;
+      font-size: 13px;
+    }
+
+    /* Informs the user of the current user controls available */
+
+    #instructions {
+      width: 100%;
+      height: 100%;
+
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+
+      -webkit-box-orient: horizontal;
+      -moz-box-orient: horizontal;
+      box-orient: horizontal;
+
+      -webkit-box-pack: center;
+      -moz-box-pack: center;
+      box-pack: center;
+
+      -webkit-box-align: center;
+      -moz-box-align: center;
+      box-align: center;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    #hud {
+      top: 10px;
+      position: absolute;
+      right: 10px;
+      z-index: 100;
+    }
+
+    #hurt {
+      background-color: red;
+      display: none;
+      left: 0;
+      opacity: 0.15;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      z-index: 1002;
+      width: 100%;
+      height: 100%;
+    }
+
+    #snackbar {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+      font-size: 17px;
+    }
+
+    #snackbar.show {
+      visibility: visible;
+      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+      from {
+        bottom: 0;
+        opacity: 0;
+      }
+      to {
+        bottom: 30px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadein {
+      from {
+        bottom: 0;
+        opacity: 0;
+      }
+      to {
+        bottom: 30px;
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes fadeout {
+      from {
+        bottom: 30px;
+        opacity: 1;
+      }
+      to {
+        bottom: 0;
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeout {
+      from {
+        bottom: 30px;
+        opacity: 1;
+      }
+      to {
+        bottom: 0;
+        opacity: 0;
+      }
+    }
+
+    p {
+      background-color: #EEEEEE;
+      border: 1px solid black;
+      display: inline-block;
+      margin: 0;
+      padding: 5px;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <!-- required libraries -->
+  <script src="../lib/three.js"></script>
+  <script src="../lib/PointerLockControls.js"></script>
+  <script src="../lib/MTLLoader.js"></script>
+  <script src="../lib/OBJLoader.js"></script>
+  <script src="../lib/stats.min.js"></script>
+  <script src="../lib/jquery-3.2.1.min.js"></script>
+
+  <!-- elements that are scene when then user views the browser -->
+
+  <div id="container"></div>
+  <!-- instructions for the player playing the game -->
+  <div id="instructions">
+    <p>
+      <span style="color:black"><span style="font-size:30px">Mutated Hadidas are on the loose, you have been infected.</br> Your mission kill them before they escape and you die!!</span></span>
+      <span style="color:black"><span style="font-size:35px"></br >Click to Play Hadida Hunter ....</span></span>
+      <span style="font-size:20px"><span style="color:black"></br> Controls:</br>WASD to move, Q to run, SPACEBAR to jump, </br>Mouse to look around, Click to shoot, R to restart</span></span>
+      <span style="color:red"></br>Hint: Look at wall of sight for help locating Hadidas</span>
+    </p>
+  </div>
+  <!-- heads up display which keeps track of health, score and number of hadidas in the scene -->
+  <div id="hud">
+    <p>Health: <span id="health">100</span><br /> Hadidas: <span id="hadidas">22</span><br /> Score: <span id="score">0</span></p>
+  </div>
+  <!-- used for displaying red flash -->
+  <div id="hurt"></div>
+  <!-- displays message to the player when something happens -->
+  <div id="snackbar"></div>
+  <script src="sketch.js"></script>
+</body>
+
+</html>
