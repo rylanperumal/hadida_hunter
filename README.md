@@ -11,7 +11,7 @@ COMS3006 CVG(Computer Graphics and Visualization) Project
 # To run the game:
  - I ran my game on a linux machine, there were issued with using firefox and chrome.
  - google-chrome must be installed.
- - To run: - open terminal where index.html is located, then type the following command in the terminal
+ - To run: - open terminal where index.html is located, then type the following command in terminal
            - "$ google-chrome --disable-web-security --user-data-dir index.html "
            - the reason for this is that chrome does not let you load from local file path, and
              firefox does not support certain functionality.
@@ -21,8 +21,7 @@ COMS3006 CVG(Computer Graphics and Visualization) Project
    to his research but something went wrong. The element which he called "flightonium", got
    mixed with the food of his hadida subjects. The flightonium gave the hadidas super intelligence.
    This made them realize what was happening to them and all of the animals of the world so they set
-   on a mission to take down the human race. Now it is up to santiago to take them down or it is all over
-   the human race.
+   on a mission to take down the human race. Now it is up to santiago to take them down.
 
 # Game Levels
   - Level 1: Scene is setup in a forest, aim is to kill all hadidas
